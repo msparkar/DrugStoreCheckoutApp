@@ -1,0 +1,17 @@
+.product-card {
+    width: 300px;
+    float: left;
+    height: 400px;
+    padding: 5px;
+  }
+  
+  .product-header-image {
+    background-size: cover;
+  }
+  
+  .product-image{
+    max-width: 200px;;
+    max-height: 200px;
+    background-size: cover;
+  }
+  
