@@ -8,7 +8,7 @@ const userSchema = new Schema(
     firstName: { type: String, required: true, unique: false },
     lastName: { type: String, required: true, unique: false },
     emailAddress: { type: String, required: true, unique: true },
-    password :{ type: String, required: true, unique: false },
+    passwordHash :{ type: String, required: true, unique: false },
     gender :{ type: String},
     phoneNumber: { type: String},
     creditCardNumber: { type: String}
@@ -20,4 +20,4 @@ const userSchema = new Schema(
 
 const User = mongoose.model('User', userSchema);
 
-module.exports = User;
+module.exports = User;  

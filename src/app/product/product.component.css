@@ -1,8 +1,9 @@
 .product-card {
     width: 300px;
     float: left;
-    height: 400px;
+    height: 200px;
     padding: 5px;
+    border : solid 1px gainsboro;
   }
   
   .product-header-image {
@@ -15,3 +16,21 @@
     background-size: cover;
   }
   
+  mat-card-title{
+    height: 50px;
+    overflow: hidden;
+    border: solid 1px red;
+
+  }
+  mat-card-subtitle{
+    height: 30px;
+    overflow: hidden;
+    border: solid 1px blue;
+
+  }
+  mat-card-actions{
+    height: 40px;
+    overflow: hidden;
+    border: solid 1px green;
+
+  }

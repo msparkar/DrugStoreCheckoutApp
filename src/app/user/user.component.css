@@ -1,0 +1,11 @@
+.UserDetailsLabel{
+    /* border: solid 1px red; */
+    width: 40%;
+    float: left;
+}
+
+.UserDetailsContent{
+    /* border: solid 1px blue; */
+    width: 40%;
+    float: left;
+}

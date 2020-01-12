@@ -8,4 +8,3 @@ export class User {
     phoneNumber: string;
     creditCardNumber: string;
 }
-

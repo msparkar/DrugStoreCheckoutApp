@@ -15,7 +15,7 @@ const mongoUri = 'mongodb+srv://CheckoutAppRW:MihirParkar123@cluster0-waktx.azur
 
 function connect() {
 mongoose.set('debug', true);
-return mongoose.connect(mongoUri, { useMongoClient: true });
+return mongoose.connect(mongoUri, { useMongoClient: true,  useUnifiedTopology: true,useNewUrlParser: true   });
 }
 
 module.exports = {

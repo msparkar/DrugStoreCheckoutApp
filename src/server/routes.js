@@ -3,11 +3,18 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/products', (req, res) => {
-
    productService.getProducts(req, res);
-   //  res.send(200, [
-//     {"id": 10, "name": "Starlord", "saying": "oh yeah"}
-//  ])
 });
+
+
+router.get('/product/:code', (req, res) => {
+   productService.getProductByCode(req, res);
+});
+
+router.post('/buyProductForUser', (req, res) => {
+   productService.buyProduct(req, res);
+});
+
+
 
 module.exports=router;

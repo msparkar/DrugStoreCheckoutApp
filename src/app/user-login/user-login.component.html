@@ -1,0 +1,10 @@
+<div class="example-container" [formGroup]="loginForm">
+  <h5 *ngIf="loginFormSubmitted && !loginSuccess">login failed</h5>
+  <mat-form-field><input matInput placeholder="username" type="text" formControlName="username"></mat-form-field>
+  <br>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" formControlName="password">
+    </mat-form-field>
+    <br>
+    <button mat-stroked-button  (click)="Login();">Login</button>
+  </div>

@@ -1,0 +1,13 @@
+<div *ngIf="product">
+<h1>{{product.name}}</h1>
+<h5>{{product.company}}</h5>
+<h6>${{product.price}}</h6>
+<img src="{{ product.imageLink }}" alt="{{product.name}}">
+
+<br>
+<div *ngIf="product.stock>0;else OutOfStockMessage">
+    {{product.stock}} in stock
+    <button mat-raised-button color="primary" (click)="BuyProduct()">Buy</button>
+</div>
+<ng-template #OutOfStockMessage>Item out of stock</ng-template>
+</div>

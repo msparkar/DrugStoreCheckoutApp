@@ -5,7 +5,7 @@ import { Product } from './Models/Product';
 import { User } from './Models/User';
 import { Observable } from 'rxjs';
 import {from} from 'rxjs';
-const api = 'http://localhost:3000/api';
+const api = 'http://localhost:3000';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +15,36 @@ export class ApiService {
 
   getProducts() :Observable<Product[]> {
     //return this.getProductsTest();
-    return this.http.get<Product[]>(`${api}/products`)
+    return this.http.get<Product[]>(`${api}/api/products`, { withCredentials: true })
   }
 
-  getUser() {
-    return this.http.get<User>(`${api}/User/Profile`)
+  getProductByCode(productCode : string) :Observable<Product> {
+    return this.http.get<Product>(`${api}/api/product/${productCode}`, { withCredentials: true })
   }
 
-   updateUser(user: User) {
-     return this.http.put<User>(`${api}/User/${user.userId}`, user);
-   }
+  buyProductForUser(productCode : string, userId : number, quantity :number) :Observable<boolean> {
+
+    var buyRequest = {
+      productCode : productCode, 
+      userId : userId, 
+      quantity :quantity
+    }
+    return this.http.post<boolean>(`${api}/api/buyProductForUser`, buyRequest);
+  }
+
+  getCurrentUserProfile()
+  {
+    return this.http.get<User>(`${api}/user/getProfile`, { withCredentials: true })
+  }
+
+  updateUser(user: User) {
+    return this.http.post<User>(`${api}/user/saveProfile`, user);
+  }
+
+  userLogin(username: string, password : string) {
+
+    return this.http.post<boolean>(`${api}/user/login`, {"username" : username, "password" : password});
+  }
+
+ 
 }

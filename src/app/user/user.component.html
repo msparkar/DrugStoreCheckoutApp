@@ -1,1 +1,75 @@
-<p>user works!</p>
+<div *ngIf="editMode;else UserDetails">
+    <form [formGroup]="UserDetailsForm" >
+    <div style="width: 100%;">
+        <div *ngIf="userFormErrors" color="warn">{{userFormErrors}}</div>
+        <div>
+                <mat-form-field><input matInput placeholder="User Id" type="text" formControlName="userId"></mat-form-field>
+        </div>
+
+        <div>
+                <mat-form-field><input matInput placeholder="First Name" type="text" formControlName="firstName"></mat-form-field>
+        </div>
+        <div>
+                <mat-form-field><input matInput placeholder="Last Name" type="text" formControlName="lastName"></mat-form-field>
+        </div>
+        <div>
+                <mat-form-field><input matInput placeholder="Email Address" type="text" formControlName="emailAddress"></mat-form-field>
+        </div>
+        <div>
+                <mat-form-field><input matInput placeholder="Phone Number" type="text" formControlName="phoneNumber"></mat-form-field>
+        </div>
+        <div>
+                <mat-form-field><input matInput placeholder="Gender" type="text" formControlName="gender"></mat-form-field>
+        </div>
+        <div>
+                <mat-form-field><input matInput placeholder="Credit Card Number" type="text" formControlName="creditCardNumber"></mat-form-field>
+        </div>
+        <div>
+            <button mat-stroked-button  (click)="UpdateUserDetails();">Save</button>
+            <button mat-stroked-button  (click)="ExitEditMode();">Cancel</button>
+        </div>
+    </div>    
+    </form>
+
+
+</div>
+<ng-template #UserDetails>
+<div style="width: 100%;" *ngIf="user">
+    <div>
+        <div class="UserDetailsLabel">First Name</div>
+        <div class="UserDetailsContent">{{ user.firstName }}</div>
+        <div style="clear: both;"></div>
+    </div>
+    <div>
+        <div class="UserDetailsLabel">Last Name</div>
+        <div class="UserDetailsContent">{{ user.lastName }}</div>
+        <div style="clear: both;"></div>
+    </div>
+    <div>
+        <div class="UserDetailsLabel">Email Address</div>
+        <div class="UserDetailsContent">{{ user.emailAddress }}</div>
+        <div style="clear: both;"></div>
+    </div>
+    <div>
+        <div class="UserDetailsLabel">Phone Number</div>
+        <div class="UserDetailsContent">{{ user.phoneNumber }}</div>
+        <div style="clear: both;"></div>
+    </div>
+    <div>
+        <div class="UserDetailsLabel">Gender</div>
+        <div class="UserDetailsContent">{{ user.gender }}</div>
+        <div style="clear: both;"></div>
+    </div>
+    <div>
+        <div class="UserDetailsLabel">Credit Card Number</div>
+        <div class="UserDetailsContent">{{ user.creditCardNumber }}</div>
+        <div style="clear: both;"></div>
+    </div>
+    <div>
+        <div class="UserDetailsLabel"></div>
+        <div class="UserDetailsContent"><button mat-stroked-button  (click)="EditUserDetails();">Edit</button></div>
+        <div style="clear: both;"></div>
+    </div>
+    
+</div>    
+</ng-template>
