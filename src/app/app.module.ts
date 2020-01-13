@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
 import { UserComponent } from './user/user.component';
 
+import {MatMenuModule} from '@angular/material/menu';
 import { Router, RouterModule } from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -31,6 +32,7 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
   ],
   imports: [
     BrowserModule,
+    MatMenuModule,
     AppRoutingModule,
     HttpClientModule,
     MatCardModule,

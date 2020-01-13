@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'Products', component:ProductComponent  },
   { path: 'Profile', component:UserComponent  },
   { path: 'Login', component:UserLoginComponent  },
+  { path: '', component:UserLoginComponent  },
   { path: 'OrderHistory', component:OrderHistoryComponent  },
   { path: 'Product/:code', component: ProductDetailComponent }
 

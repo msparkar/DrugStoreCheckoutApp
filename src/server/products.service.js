@@ -76,12 +76,10 @@ function buyProduct(req, res){
       
       oHist.save(function(error) {
         if (!error) {
-            OrderHistory.find({})
-                .populate('product')
-                .populate('user')
-                .exec(function(error, oHists) {
-                    console.log(JSON.stringify(oHists, null, "\t"))
-                })
+          product.stock -=1;
+          product.save(function (err) {
+            
+          });
         }
       });      
 
