@@ -24,10 +24,42 @@ function getProductByCode(req, res){
   });
 }
 
+function getOrderHistory(req, res){
+  var productCode = req.params.code;
+  var userId = req.params.userId;
+
+
+
+  const docquery = OrderHistory.find({});
+  docquery
+    .populate('product')
+    .populate('user')
+    .exec()
+    .then(ohist => {
+      res.status(200).json(ohist);
+    })
+    .catch(error => {
+      res.status(500).send(error);
+      return;
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
 function buyProduct(req, res){
   var productCode = req.body.productCode;
   var userId = req.body.userId;
-  var quantity = req.body.quantity;dd
+  var quantity = req.body.quantity;
 
 
   Product.findOne({ code: productCode }).exec(function (err, product) {
@@ -94,5 +126,6 @@ function buyProduct(req, res){
 module.exports = {
   getProducts,
   getProductByCode,
-  buyProduct
+  buyProduct,
+  getOrderHistory
 };

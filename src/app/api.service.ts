@@ -5,6 +5,7 @@ import { Product } from './Models/Product';
 import { User } from './Models/User';
 import { Observable } from 'rxjs';
 import {from} from 'rxjs';
+import { OrderHistory } from './Models/OrderHistory';
 const api = 'http://localhost:3000';
 
 @Injectable({
@@ -16,6 +17,10 @@ export class ApiService {
   getProducts() :Observable<Product[]> {
     //return this.getProductsTest();
     return this.http.get<Product[]>(`${api}/api/products`, { withCredentials: true })
+  }
+
+  getOrderHistory() :Observable<OrderHistory[]> {
+    return this.http.get<OrderHistory[]>(`${api}/api/getOrderHistory/1/2`, { withCredentials: true })
   }
 
   getProductByCode(productCode : string) :Observable<Product> {

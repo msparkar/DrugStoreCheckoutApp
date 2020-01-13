@@ -34,6 +34,7 @@
 
 </div>
 <ng-template #UserDetails>
+<h5 *ngIf="user.creditCardNumber.length == 0">Please Add Credit Card</h5>    
 <div style="width: 100%;" *ngIf="user">
     <div>
         <div class="UserDetailsLabel">First Name</div>

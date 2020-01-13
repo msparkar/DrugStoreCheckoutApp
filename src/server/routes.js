@@ -15,6 +15,10 @@ router.post('/buyProductForUser', (req, res) => {
    productService.buyProduct(req, res);
 });
 
+router.get('/getOrderHistory/:userId/:code', (req, res) => {
+   productService.getOrderHistory(req, res);
+});
+
 
 
 module.exports=router;

@@ -18,6 +18,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { MatSort, MatTableDataSource, MatSortModule, MatTableModule } from '@angular/material';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ProductComponent,
     UserComponent,
     UserLoginComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,
