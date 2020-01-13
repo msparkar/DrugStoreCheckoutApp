@@ -22,7 +22,7 @@ function checkLogin(req, res) {
 
 function getCurrentUserProfile(req, res) {
   var sess = req.session;
-  var userId = 1;//sess.userId;
+  var userId = sess.userId;
   User.findOne({ userId: userId }).exec(function (err, user) {
     res.send(user);
   });
