@@ -13,15 +13,18 @@ export class ProductDetailComponent implements OnInit {
   user : User;
   product : Product;
   productCode : string;
+  purchasedMessage : string;
   constructor(private apiService: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+
+    this.purchasedMessage = '';
     this.apiService.getCurrentUserProfile().subscribe(
       user => {
         if(user == null || user.userId == null)
           this.router.navigate(['/Login']);
-
         this.user = user; 
+
       },
       error => {console.log(error)}     
     );
@@ -36,11 +39,13 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
+  
   BuyProduct()  {
     var qty : number = 1;
+    this.purchasedMessage = 'You purchased ' + qty + ' units of ' + this.product.name;
+
     this.apiService.buyProductForUser(this.product.code, this.user.userId, qty).subscribe(
       data => {
-        console.log(data);
       },
       error => {console.log(error)}     
     );

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const userService = require('./users.service'); 
 const bcrypt = require('bcryptjs');
+const csv=require('csvtojson')
 
 /*
    isUserLoggedIn
@@ -28,11 +29,5 @@ router.get('/getProfile', function(req, res, next) {
 router.post('/saveProfile', function(req, res, next) {
    userService.saveProfile(req, res);
 });
-
-router.get('/hashAllUsers', function(req, res, next) {
-   userService.HashAllUsers(req, res);
-});
-
-
 
 module.exports = router;

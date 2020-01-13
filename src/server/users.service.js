@@ -1,5 +1,6 @@
 const User = require('./user.model');
 const bcrypt = require('bcryptjs');
+const csv=require('csvtojson')
 
 var conn = require('./mongo').connect();
 
@@ -33,25 +34,8 @@ function saveProfile(req, res){
   });
 }
 
-function HashAllUsers()
-{
-  User
-    .find({})
-    .forEach(function (doc) {
-      var hash = bcrypt.hashSync(doc.ptPassword);
-      doc.passwordHash = doc.hash;
-      User.save(doc); 
-    });
-}
-
-function getEncryptedPassword(plainTextPassword)
-{
-  return "";//bcrypt.hashSync(plainTextPassword, 10);
-}
-
 module.exports = {
   checkLogin,
   getCurrentUserProfile,
-  saveProfile,
-  HashAllUsers
+  saveProfile
 };

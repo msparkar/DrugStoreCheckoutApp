@@ -9,7 +9,7 @@
     {{product.stock}} in stock
 
     <h5 *ngIf="user.creditCardNumber.length == 0">Please Add Credit Card to your profile to buy</h5>    
-
+    <p>{{purchasedMessage}}</p>
     <button mat-raised-button color="primary" (click)="BuyProduct()" [disabled]="user.creditCardNumber.length == 0">Buy</button>
 </div>
 <ng-template #OutOfStockMessage>Item out of stock</ng-template>

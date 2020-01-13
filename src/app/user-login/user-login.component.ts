@@ -29,7 +29,7 @@ export class UserLoginComponent implements OnInit {
     var password : string = this.loginForm.controls.password.value  
     this.apiService.userLogin(username, password).subscribe(data => {
       if(data)
-        this.router.navigate(['/Profile']);
+        this.router.navigate(['/Products']);
       else
         this.loginSuccess = false; 
      },

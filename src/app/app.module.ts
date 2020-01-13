@@ -17,6 +17,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+
+import {MatListModule} from '@angular/material/list';
 import { MatSort, MatTableDataSource, MatSortModule, MatTableModule } from '@angular/material';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
@@ -44,7 +46,8 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
     MatIconModule,
     MatButtonModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatListModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
